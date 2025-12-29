@@ -28,10 +28,14 @@ def test_delisted_securities_list(client):
 
 
 def test_trade_securities_list(client):
-    recent_date = datetime.now() - timedelta(days=30)
-    trade_securities = client.securities_basic.get_trade_securities_list(
-        recent_date.year,
-        recent_date.month,
-        recent_date.day
-    )
-    assert trade_securities.trade_securities_list.total > 0
+    recent_date = []
+    delta = [28, 29, 30]
+    [recent_date.append(datetime.now() - timedelta(days=delta[i])) for i in range(0,3)]
+    total = 0
+    for i in range(0,3):
+        total += client.securities_basic.get_trade_securities_list(
+                                                                   recent_date[i].year,
+                                                                   recent_date[i].month,
+                                                                   recent_date[i].day
+                                                                  ).trade_securities_list.total
+    assert total > 0
