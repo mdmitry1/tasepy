@@ -14,8 +14,8 @@ def get_status_emoji(status_code: int) -> str:
     return status_string[max(min(status_code // 100, 6) - 2, 0)]
 
 def main():
-    parser = ArgumentParser(description='TASE API SITE CHECKER')
-    parser.add_argument('-url', type=str, required=True, help='TASE API site URL')
+    parser = ArgumentParser(description='SITE CHECKER')
+    parser.add_argument('-url', type=str, required=True, help='site URL')
     args = parser.parse_args()
     urls=[args.url]
     table = Table(title="[bold]תוצאות בדיקת אתרי אינטרנט")
