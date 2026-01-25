@@ -19,7 +19,7 @@ def main():
     args = parser.parse_args()
     urls=[args.url]
     table = Table(title="[bold]תוצאות בדיקת אתרי אינטרנט")
-    table.add_column("                     סטטוס", justify="left", style="green bold")
+    table.add_column("                סטטוס", justify="left", style="green bold")
     table.add_column("קוד סטטוס", justify="center")
     table.add_column("כתובת אתר", justify="center", style="cyan", no_wrap=True)
 
